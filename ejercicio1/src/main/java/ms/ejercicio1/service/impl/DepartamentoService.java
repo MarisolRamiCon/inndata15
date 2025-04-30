@@ -23,4 +23,27 @@ public class DepartamentoService implements IDepartamentoService {
         Optional<Departamento> departamento= departamentoRepository.findById(id);
         return departamento;
     }
+
+    @Override
+    public Integer create(Departamento departamento) {
+        departamentoRepository.save(departamento);
+        return departamento.getId();
+    }
+
+    @Override
+    public Departamento update(Departamento departamento) {
+        return departamentoRepository.save(departamento);
+    }
+
+    @Override
+    public String deleteById(Integer id){
+        Optional<Departamento> departamentoABorrar= departamentoRepository.findById(id);
+        if(departamentoABorrar.isPresent()){
+            departamentoRepository.deleteById(id);
+            return "Borrado correctamente";
+        }else{
+            return "El id no existe. Error.";
+        }
+
+    }
 }
