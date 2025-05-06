@@ -1,7 +1,13 @@
 package ms.ejercicio1.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Entity
 @Table(name = "departamento")
 public class Departamento {
@@ -13,37 +19,8 @@ public class Departamento {
     private Long m2;
     @Column(name = "precio")
     private Double precio;
+    @Column(name = "activo")
+    private Boolean activo;
 
-    public Departamento() {
-    }
-
-    public Departamento(Integer id, Long m2, Double precio) {
-        this.id = id;
-        this.m2 = m2;
-        this.precio = precio;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Long getM2() {
-        return m2;
-    }
-
-    public void setM2(Long m2) {
-        this.m2 = m2;
-    }
-
-    public Double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(Double precio) {
-        this.precio = precio;
-    }
 }
+
