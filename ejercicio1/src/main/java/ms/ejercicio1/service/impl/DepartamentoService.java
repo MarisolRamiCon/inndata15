@@ -23,12 +23,7 @@ public class DepartamentoService implements IDepartamentoService {
     @Override
     public Optional<Departamento> readById(Integer id) {
         Optional<Departamento> departamento= departamentoRepository.findById(id);
-        Departamento depaMostrar= departamento.get();
-        if (depaMostrar.getActivo()==true){
-            return departamento;
-        }else {
-            return null;
-        }
+        return departamento;
     }
 
     @Override
@@ -63,5 +58,9 @@ public class DepartamentoService implements IDepartamentoService {
     @Override
     public List<Departamento> findByMenorPrecioM2(Double precio, Long m2) {
         return departamentoRepository.menorPrecioAndm2(precio,m2);
+    }
+
+    public Integer sumar(Integer x, Integer y){
+        return x+y;
     }
 }
